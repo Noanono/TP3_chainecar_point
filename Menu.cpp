@@ -20,7 +20,7 @@ int Menu::DemanderChoix(void) const
 }
 
 
-int Menu::TraiterChoix(int choix) const
+int Menu::TraiterChoix(int choix)
 {
   int fin=0;
   switch(choix)
@@ -68,7 +68,7 @@ void Menu::Executer()
     }
 }
 
-
+/*********************************MenuEssai************************************/
 
 int MenuEssai::TraiterEssai(void) const
 {
@@ -76,7 +76,7 @@ int MenuEssai::TraiterEssai(void) const
   return 0;
 }
 
-int MenuEssai::TraiterChoix(int choix) const
+int MenuEssai::TraiterChoix(int choix)
 {
   int fin=0;
   switch(choix)
@@ -98,4 +98,90 @@ void MenuEssai::AfficherMenu(void) const
 {
   Menu::AfficherMenu();
   cout<<"- 2:\t Essai"<<endl;
+}
+
+/*********************************MenuPoint************************************/
+
+void MenuPoint::AfficherMenu(void) const
+{
+    Menu::AfficherMenu();
+    cout << "- 2:\t Afficher" << endl;
+    cout << "- 3:\t Modifier" << endl;
+    cout << "- 4:\t Translater" << endl;
+}
+
+int MenuPoint::TraiterChoix(int choix)
+{
+    int fin=0;
+    switch(choix)
+    {
+    case 0:
+        fin=TraiterQuitter();
+        break;
+    case 1:
+        fin=TraiterAide();
+        break;
+    case 2:
+        fin=TraiterAfficher();
+        break;
+    case 3:
+        fin=TraiterModifier();
+        break;
+    case 4:
+        fin=TraiterTranslater();
+        break;
+    }
+    return fin;
+}
+
+int MenuPoint::TraiterAfficher(void) const
+{
+    P->Affiche();
+    return 0;
+}
+
+int MenuPoint::TraiterModifier(void)
+{
+    int x,y;
+    cout << "Entrez le nouvel abscise du point" << endl;
+    cin >> x;
+    cout << "Entrez le nouvel ordonnee du point" << endl;
+    cin >> y;
+    P->Modifier(x,y);
+    return 0;
+}
+
+int MenuPoint::TraiterTranslater(void)
+{
+    int x,y;
+    cout << "Entrez le deplacement horizontal" << endl;
+    cin >> x;
+    cout << "Entrez le deplacement vertical" << endl;
+    cin >> y;
+    P->Translater(x,y);
+    return 0;
+}
+
+int MenuPoint::TraiterChoixPoint(int choix)
+{
+    int fin=0;
+    switch(choix)
+    {
+    case 0:
+        fin=TraiterQuitter();
+        break;
+    case 1:
+        fin=TraiterAide();
+        break;
+    case 2:
+        fin=TraiterAfficher();
+        break;
+    case 3:
+        fin=TraiterModifier();
+        break;
+    case 4:
+        fin=TraiterTranslater();
+        break;
+    }
+    return fin;
 }

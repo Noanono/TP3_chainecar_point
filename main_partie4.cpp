@@ -1,28 +1,34 @@
 #include<iostream>
 using namespace std;
 
-#include"Point.h"
 #include"Menu.h"
 
 int main()
 {
-  //Déclaration du point à gérer (à faire)
-  char c;
-  cout<<"Programme de gestion de point:"<<endl;
-  cout<<"souhaitez-vous nommer votre point (o/n)?: ";
-  cin>>c;
-  if(c=='o')
+    Point *p;
+
+    //Déclaration du point à gérer (à faire)
+    char c;
+    cout<<"Programme de gestion de point:"<<endl;
+    cout<<"souhaitez-vous nommer votre point (o/n)?: ";
+    cin>>c;
+    if(c=='o')
     {
-      //A compléter
+        char nom[20];
+        p = new PointNomme;
+        cout << "Quel nom voulez-vous donner à votre point?: ";
+        cin >> nom;
+        p->Modifier(nom);
     }
-  else
+    else
     {
-      //A compléter
+        p = new Point;
     }
-  
-  //Déclaration du Menu m (à faire)
-  
-  m.Executer();
-  //Une instruction attendue ici (à faire)
-  return 0;
+
+    //Déclaration du Menu m (à faire)
+    MenuPoint m(p);
+
+    m.Executer();
+    //Une instruction attendue ici (à faire)
+    return 0;
 }
